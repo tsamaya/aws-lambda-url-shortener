@@ -14,19 +14,21 @@ custom:
       - dev
     start:
       port: 8000
-      inMemory: true
+      # inMemory: true
+      dbPath: __dynamodb__
+      sharedDb: true
       # heapInitial: 200m
       # heapMax: 1g
       migrate: true
       seed: true
       convertEmptyValues: true
-    # Uncomment only if you already have a DynamoDB running locally
-    # noStart: true
+      # Uncomment only if you already have a DynamoDB running locally
+      # noStart: true
     # seed:
     #   domain:
     #     sources:
     #       - table: ${self:custom.satge}-ShortURLTable
-    #         sources: [./offline/migrations/todo-seed.json]
+    #         sources: [./offline/migrations/shorturl-seed.json]
 
 provider:
   name: aws
@@ -61,12 +63,6 @@ provider:
     SHORTID_SIZE: 7
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: /hello
-          method: get
   createShortRL:
     handler: lib/handlers/ShorURLCreateHandler.handler
     events:
@@ -98,6 +94,9 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       Properties:
         TableName: ShortURLTable
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
         AttributeDefinitions:
           - AttributeName: 'PK'
             AttributeType: 'S'
@@ -112,7 +111,6 @@ resources:
             KeyType: 'HASH'
           - AttributeName: 'SK'
             KeyType: 'RANGE'
-        BillingMode: PAY_PER_REQUEST
         GlobalSecondaryIndexes:
           - IndexName: 'GSI1'
             KeySchema:
@@ -122,3 +120,6 @@ resources:
                 KeyType: 'RANGE'
             Projection:
               ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
