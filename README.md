@@ -53,7 +53,7 @@ curl "http://localhost:3001/dev/shorten"  | jq
 open "http://localhost:3001/dev/cKFT4QP"
 ```
 
-#### Pagaination
+#### Pagination
 
 The list operation returns up to 50 shortURLs and then the `LastEvaluatedKey` allows to run a new scan starting this last key.
 
@@ -123,3 +123,17 @@ Serverless: Deprecation warning: Starting with version 3.0.0, following property
 Serverless: Announcing Metrics, CI/CD, Secrets and more built into Serverless Framework. Run "serverless login" to activate for free..
 **************************************************************************************************************************************
 ```
+
+### Contributing
+
+Anyone and everyone is welcome to contribute.
+
+### Issues
+
+Find a bug or want to request a new feature? Please let me know by submitting an issue.
+
+### Licensing
+
+Licensed under the MIT License
+
+A copy of the license is available in the repository's [LICENSE](LICENSE) file.
