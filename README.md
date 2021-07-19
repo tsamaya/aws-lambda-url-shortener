@@ -24,6 +24,8 @@
 
 - dynampdb-local requires `Java Runtime Engine (JRE) version 6.x or newer`
 
+- AWS account configured (default credential in ~/.aws or AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY set in terminal)
+
 #### Get started
 
 - clone the repo
