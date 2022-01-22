@@ -34,7 +34,7 @@
     "serverless-offline": "^7.0.0"
   },
   "dependencies": {
-    "nanoid": "^3.1.23"
+    "nanoid": "^3.1.31"
   },
   "peerDependencies": {
     "aws-sdk": "^2.*"
