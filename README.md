@@ -48,9 +48,9 @@ http://localhost:8000/shell/
 ```bash
 curl -X POST "http://localhost:3001/dev/shorten" -d '{"url":"https://www.zermatt.ch/en/Webcams"}' | jq
 
-curl "http://localhost:3001/dev/shorten/cKFT4QP"  | jq
+curl -X GET "http://localhost:3001/dev/shorten/cKFT4QP"  | jq
 
-curl "http://localhost:3001/dev/shorten"  | jq
+curl -X GET "http://localhost:3001/dev/shorten"  | jq
 
 open "http://localhost:3001/dev/cKFT4QP"
 ```
