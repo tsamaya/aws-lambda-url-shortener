@@ -31,7 +31,7 @@
     "prettier": "^2.5.1",
     "serverless": "^3.22.0",
     "serverless-dynamodb-local": "^0.2.40",
-    "serverless-offline": "^8.4.0"
+    "serverless-offline": "^8.8.1"
   },
   "dependencies": {
     "nanoid": "^3.2.0"
